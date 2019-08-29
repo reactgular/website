@@ -1,0 +1,15 @@
+@import "config";
+
+.demo-reset {
+    * {
+        font-size: $font-size-base;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+    }
+
+    .btn {
+        background-color: transparent;
+        border: 1px solid black;
+        color: black;
+    }
+}

@@ -1,0 +1,34 @@
+@import "../config";
+
+:host {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: map-get($spacers, 3);
+    color: $white;
+    align-items: baseline;
+    transition: background-color 250ms ease-in-out;
+
+    &.show-dialog, &:hover {
+        background-color: $gray-500;
+    }
+
+    .message {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .play-again {
+        label, input {
+            cursor: pointer;
+        }
+    }
+
+    .timer {
+        color: $white;
+        background: $gray-700;
+        padding: 0 1rem;
+    }
+}

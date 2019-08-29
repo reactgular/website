@@ -1,0 +1,219 @@
+@import "../config";
+
+ws-chromium {
+    $bgColor: #3D3E38;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: $bgColor;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    .chrome-top {
+        height: 30px;
+        width: 100%;
+        border-bottom: 1px solid grey;
+    }
+
+    .chrome-tabs {
+        float: left;
+        position: relative;
+        margin-left: 12px;
+
+        .tabs {
+            padding: 6px 6px 6px 12px;
+            width: 180px;
+            background: #f2f2f2;
+            cursor: default;
+
+            .text-tabs {
+                font-size: 12px;
+                line-height: 19px;
+                margin-left: 3px;
+                vertical-align: text-bottom;
+            }
+
+            .icons-tabs img {
+                width: 16px;
+                height: 16px;
+                margin-right: 4px;
+            }
+
+            .close-tabs {
+                float: right;
+                margin-top: 2px;
+                margin-right: 10px;
+                height: 15px;
+                width: 15px;
+                text-align: center;
+                line-height: 0.9;
+                font-size: 14px;
+                border-radius: 50%;
+                font-weight: 500;
+                font-family: monospace;
+
+                &:hover {
+                    background: $gray-500;
+                    color: white;
+                    padding: 1px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .new-tabs {
+        width: 26px;
+        height: 15px;
+        background: #ccc;
+        transform: skew(20deg);
+        position: absolute;
+        top: 7px;
+        right: -30px;
+        border: 1px solid grey;
+        border-radius: 2px;
+
+        &:hover {
+            background: rgba(128, 128, 128, 0.3);
+            cursor: pointer;
+        }
+    }
+
+    .triangle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 0 solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 7px solid $bgColor;
+    }
+
+    .triangle-2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-top: 0 solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 10px solid $bgColor;
+        transform: scaleX(-1);
+    }
+
+    .chrome-bottom {
+        display: flex;
+        position: relative;
+        background: #f2f2f2;
+        font-size: 14px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 3px;
+        border-bottom: 1px solid $gray-300;
+
+        a {
+            text-decoration: none;
+            border-radius: 3px;
+
+            &:hover {
+                background: #dfdfdf;
+            }
+        }
+
+        .arrows {
+            font-size: 16px;
+            flex: 0 0 75px;
+            flex-direction: row;
+            align-self: center;
+            margin-left: 3px;
+            margin-right: 3px;
+
+            a {
+                color: #5a5a5a;
+                padding: 4px;
+            }
+        }
+
+        .search-bar {
+            flex-grow: 1;
+
+            .info {
+                position: absolute;
+                font-size: 12px;
+                color: #27ae60;
+                border-right: 1px solid rgba(128, 128, 128, 0.808);
+                padding-left: 9px;
+                padding-right: 9px;
+                line-height: 33px;
+                cursor: default;
+
+                &:hover {
+                    background: rgba(128, 128, 128, 0.2);
+                }
+            }
+
+            input {
+                border: 1px solid grey;
+                border-radius: 4px;
+                height: 31px;
+                padding: 0;
+                width: 100%;
+                text-indent: 87px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .star {
+                position: absolute;
+                font-size: 12px;
+                color: grey;
+                padding: 6px;
+                top: 5px;
+                right: 27px;
+                border-radius: 2px;
+                cursor: default;
+
+                &:hover {
+                    background: rgba(128, 128, 128, 0.2);
+                }
+            }
+        }
+
+        .points-bar {
+            font-size: 16px;
+            border-radius: 3px;
+            margin-left: 4px;
+
+            &:hover {
+                background: rgba(128, 128, 128, 0.2);
+            }
+
+            a {
+                color: #5a5a5a;
+            }
+
+            .points {
+                display: inline-flex;
+                transform: rotate(90deg);
+                cursor: default;
+                color: grey;
+                margin-top: 6px;
+                border-radius: 3px;
+            }
+        }
+    }
+
+    .chrome-content {
+        position: relative;
+        flex-grow: 1;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        pointer-events: none;
+        transition: background-color 300ms ease-in-out;
+    }
+}

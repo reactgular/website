@@ -1,0 +1,7 @@
+<ws-demo *ngIf="playDemo$ | async; else finished"></ws-demo>
+<ng-template #finished>
+    <div class="container demo-reset">
+        <ws-summary></ws-summary>
+        <ws-bookmarks></ws-bookmarks>
+    </div>
+</ng-template>

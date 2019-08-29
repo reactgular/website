@@ -1,0 +1,18 @@
+<div class="terminal d-flex c5">
+    <div>GNU nano 2.9.3</div>
+    <div class="ml-auto mr-auto">{{fileName}}</div>
+</div>
+<ws-terminal [buffer]="buffer"></ws-terminal>
+<div class="terminal d-flex flex-column">
+    <div class="d-flex ml-auto mr-auto c5">[ Read 0 lines ]</div>
+    <div class="hot-keys">
+        <div class="hot-key"
+             *ngFor="let key of keys1$ | async"
+             [style.width.%]="100 / (keys1$ | async).length"><span class="c5">{{key[0]}}</span> {{key[1]}}</div>
+    </div>
+    <div class="hot-keys">
+        <div class="hot-key"
+             *ngFor="let key of keys2$ | async"
+             [style.width.%]="100 / (keys2$ | async).length"><span class="c5">{{key[0]}}</span> {{key[1]}}</div>
+    </div>
+</div>

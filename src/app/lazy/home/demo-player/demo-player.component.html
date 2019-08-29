@@ -1,0 +1,38 @@
+<ng-container *ngIf="terminalBuffer$ | async as terminalBuffer">
+    <ng-container *ngIf="positionTerminal$ | async as pos">
+        <ws-window class="window-terminal"
+                   data-title="Terminal"
+                   [ngStyle]="pos">
+            <ws-terminal *ngIf="!(nanoBuffer$ | async)"
+                         class="terminal-theme"
+                         [buffer]="terminalBuffer"></ws-terminal>
+            <ws-nano *ngIf="nanoBuffer$ | async as childNanoBuffer$"
+                     class="terminal-theme"
+                     [fileName]="'styles.scss'"
+                     [buffer]="childNanoBuffer$  | async"></ws-nano>
+            <div *ngIf="paused$ | async" class="paused-message">PAUSED</div>
+        </ws-window>
+    </ng-container>
+    <ng-container *ngIf="positionBrowser$ | async as pos">
+        <ws-window class="window-chromium"
+                   data-title="Chromium"
+                   [ngStyle]="pos">
+            <ws-chromium [favIcon]="favIcon$ | async"
+                         url="https://reactgular.com/"
+                         [backgroundColor]="backgroundColor$ | async">
+                <ws-default-angular *ngIf="!(showComponents$ | async)"></ws-default-angular>
+                <ng-container *ngIf="showComponents$ | async">
+                    <ws-proxy-component tagName="ws-summary"
+                                        [html]="observeSummary.renderHtml$ | async"
+                                        [css]="observeSummary.renderCss$ | async">
+                    </ws-proxy-component>
+                    <ws-proxy-component tagName="ws-bookmarks"
+                                        [html]="observeBookmarks.renderHtml$ | async"
+                                        [css]="observeBookmarks.renderCss$ | async">
+                    </ws-proxy-component>
+                </ng-container>
+            </ws-chromium>
+            <div *ngIf="paused$ | async" class="paused-message">PAUSED</div>
+        </ws-window>
+    </ng-container>
+</ng-container>

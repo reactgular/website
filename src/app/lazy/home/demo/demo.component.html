@@ -1,0 +1,20 @@
+<ng-container *ngIf="bundles$ | async as bundles">
+    <ws-demo-player #demoPlayer
+                    [bundles]="bundles"
+                    (paused)="showPausedFooter = true"
+                    (resumed)="showPausedFooter = false"
+                    (started)="demoStart()"
+                    (finished)="demoFinish()"
+                    (click)="finished && demoFooter.close()"></ws-demo-player>
+    <ws-demo-footer #demoFooter
+                    [demoPlayer]="demoPlayer"
+                    [paused]="showPausedFooter"></ws-demo-footer>
+</ng-container>
+<ws-component-html *ngIf="missingBundle('summary') | async"
+                   (html)="createBundle$.next(['summary', $event])">
+    <ws-summary></ws-summary>
+</ws-component-html>
+<ws-component-html *ngIf="missingBundle('bookmarks') | async"
+                   (html)="createBundle$.next(['bookmarks', $event])">
+    <ws-bookmarks></ws-bookmarks>
+</ws-component-html>

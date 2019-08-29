@@ -1,0 +1,25 @@
+.terminal-theme {
+    color: #ccc;
+    background: #000;
+
+    .green {
+        color: darken(#8AE234, 10%);
+    }
+
+    .blue {
+        color: #689BCC;
+    }
+
+    .yellow {
+        color: #FCE94F;
+    }
+
+    .red {
+        color: darken(#EB2728, 10%);
+    }
+
+    .black {
+        background-color: #ccc;
+        color: #000;
+    }
+}

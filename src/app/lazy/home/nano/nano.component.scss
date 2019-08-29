@@ -1,0 +1,26 @@
+@import "../config";
+
+ws-nano {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    & > .terminal {
+        @include terminal-text();
+    }
+
+    ws-terminal {
+        flex-grow: 1;
+        white-space: pre;
+    }
+
+    .hot-keys {
+        display: flex;
+        flex-wrap: nowrap;
+
+        .hot-key {
+            display: flex;
+            flex: 1 1 auto;
+        }
+    }
+}

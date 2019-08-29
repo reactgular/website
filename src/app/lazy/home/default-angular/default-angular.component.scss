@@ -1,0 +1,45 @@
+@import "../config";
+
+:host {
+    display: block;
+    padding: 8px;
+    font-family: "Times New Roman", Times, serif;
+
+    h1 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding-inline-start: 40px;
+
+        li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+    }
+
+    a, a:link, a:visited {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    a {
+        color: rgb(0, 0, 238);
+
+        &:visited {
+            color: rgb(85, 26, 139);
+        }
+    }
+}

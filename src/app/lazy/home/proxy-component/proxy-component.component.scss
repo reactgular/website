@@ -1,0 +1,9 @@
+@import "../config";
+
+ws-proxy-component {
+    display: block;
+
+    * {
+        transition: all 1s ease-in-out;
+    }
+}
